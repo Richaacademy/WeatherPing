@@ -33,3 +33,18 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
+extension Date {
+    static func getHourAndMinute() -> (hour: Int, minute: Int) {
+        let date = Date.now
+        let hour = Calendar.current.component(.hour, from: date)
+        let minute = Calendar.current.component(.minute, from: date)
+        return (hour, minute)
+    }
+    
+    static func isWeekend() -> Bool {
+        let currentDate = Date.now
+        let day = Calendar.current.component(.weekday, from: currentDate)
+        return day == 1 || day == 7
+    }
+}
